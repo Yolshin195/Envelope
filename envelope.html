@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Envelope</title>
+    <style>
+      body {
+        background-color: #ffae95;
+        margin: 0px;
+        padding:0px;
+      }
+      .container {
+        position: relative;
+        width: 500px;
+        height: 250px;
+        margin: auto;
+        margin-top: 200px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+
+      .text_container,
+      .cap,
+      .envelope {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .cap {
+        z-index: 1;
+        transition: 2s;
+        transform-origin: top;
+      }
+      .cap_open {
+        transform: rotateX(180deg);
+      }
+      .text_container {
+        margin: auto;
+        width: 480px;
+        height: 240px;
+        padding: 10px;
+        padding-bottom: 0;
+        transition: 2s;
+      }
+      .text {
+        background-color: white;
+        border: solid 2px red;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        height: 230px;
+      }
+
+      .text_open {
+        top: -100px;
+      }
+
+      .z_index2 {
+        z-index: 2;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="envelope" class="container">
+      <div id="cap" class="cap">
+        <img src="cap.svg" alt=""/>
+      </div>
+      <div id="text_container" class="text_container" class="text">
+        <div class="text">
+          <p>Привет</p>
+        </div>
+      </div>
+      <div id="envelope_container" class="envelope">
+        <img src="envelope.svg" alt=""/>
+      </div>
+    </div>
+    <script>
+      var envelope = document.getElementById('envelope');   
+      var envelope_container = document.getElementById('envelope_container');
+      var cap = document.getElementById('cap');
+      var text_container = document.getElementById('text_container');
+
+      envelope.addEventListener('click', function() {
+          
+        if(!cap.classList.contains('cap_open')) {
+          cap.classList.toggle('cap_open');        
+
+          setTimeout(function() {
+            text_container.classList.toggle('text_open');
+            text_container.classList.toggle('z_index2');
+            envelope_container.classList.toggle('z_index2');
+          }, 1000);
+        } else {
+          text_container.classList.toggle('text_open');
+
+          setTimeout(function() {
+            text_container.classList.toggle('z_index2');
+            envelope_container.classList.toggle('z_index2');
+            cap.classList.toggle('cap_open');        
+          }, 1200);
+        }
+      })
+      console.log(envelope);
+    </script>
+  </body>
+</html>
