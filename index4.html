@@ -1,62 +1,77 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <!-- Required meta tags -->
+    <title>Envelope</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
+      body {
+        background-color: #ffae95;
+        margin: 0px;
+        padding:0px;
+      }
       .container {
         position: relative;
-        width: 50%;
+        width: 500px;
+        height: 250px;
         margin: auto;
+        margin-top: 200px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
       }
 
-      img {
-        width: 100%;
+      .text_container,
+      .cap,
+      .envelope {
+        position: absolute;
+        top: 0;
+        left: 0;
       }
-
       .cap {
         z-index: 1;
         transition: 2s;
         transform-origin: top;
       }
+      .cap_open {
+        transform: rotateX(180deg);
+      }
+      .text_container {
+        margin: auto;
+        width: 480px;
+        height: 240px;
+        padding: 10px;
+        padding-bottom: 0;
+        transition: 2s;
+      }
+      .text {
+        background-color: white;
+        border: solid 2px red;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        height: 230px;
+      }
 
-      .text_container,
-      .envelope,
-      .cap {
-        top: 200px;
-        width: 100%;
-        position: absolute;
+      .text_open {
+        top: -100px;
       }
 
       .z_index2 {
         z-index: 2;
       }
 
-      .cap_open {
-        transform: rotateX(180deg);
-      }
-
-      .text {
-        margin: auto;
-        margin-top: 1em;
-        width: 90%;
-        background-color: white;
-        border: solid 2px red;
-      }
-
       @media (max-width: 480px) {
-        .container {
-          width: 90%;
+        img {
+          width: 380px;
         }
-        .text {
-          margin-top: 0.5em;
+
+        .text_container {
+          width: 360px;
+        }
+
+        .container {
+          width: 380px;
         }
       }
 
     </style>
-
-    <title>Hello, world!</title>
   </head>
   <body>
     <div id="envelope" class="container">
