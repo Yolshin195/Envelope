@@ -70,7 +70,7 @@
 
     </style>
 
-    <title>Hello, world!</title>
+    <title>Happy Birthday</title>
   </head>
   <body>
     <div id="envelope" class="container">
@@ -78,13 +78,8 @@
         <img src="cap.svg" alt=""/>
       </div>
       <div id="text_container" class="text_container" class="text">
-        <div class="text">
-          <p>Привет, привет, привет, привет, привет</p>
-          <p>Привет, привет, привет, привет, привет</p>
-          <p>Привет, привет, привет, привет, привет</p>
-          <p>Привет, привет, привет, привет, привет</p>
-          <p>Привет, привет, привет, привет, привет</p>
-          <p>Привет, привет, привет, привет, привет</p>
+        <div id="text" class="text">
+          <p id="height"></p>
           <p>Привет, привет, привет, привет, привет</p>
           <p>Привет, привет, привет, привет, привет</p>
         </div>
@@ -93,7 +88,7 @@
         <img src="envelope.svg" alt=""/>
       </div>
     </div>
-    <script>
+    <script defer="defer">
       var envelope = document.getElementById('envelope');   
       var envelope_container = document.getElementById('envelope_container');
       var cap = document.getElementById('cap');
@@ -119,7 +114,9 @@
           }, 1200);
         }
       })
-      console.log(envelope);
+
+      var height = document.getElementsByTagName('img')[0].width / 2;
+      document.getElementById('text').style.height = (height) + "px";
     </script>
   </body>
 </html>
